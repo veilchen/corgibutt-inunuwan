@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title th:text="${msg}"></title>
+</head>
+<body>
+  <h1 th:text="${msg}"></h1>
+  <p>なまえをいれて</p>
+  <form method="get" action="testform">
+    <input type="text" name="input_name">
+    <input type="submit" value="判定">
+  </form>
+</body>
+</html>
