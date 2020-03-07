@@ -27,7 +27,7 @@ public class PonpokoController {
 
 	// 入力文字列をSHA-1でハッシュ化(数値の配列が返ってくる)
 	MessageDigest digest;
-    try {
+    try { // ハッシュ化メソッドはエラーを吐くのでキャッチできるようにしておく
         digest = MessageDigest.getInstance("SHA-1");
 
         byte[] hashedValue = digest.digest(name.getBytes());
@@ -39,16 +39,16 @@ public class PonpokoController {
             result = "コギケツ";
 	    break;
         case 1:
-	case -1:
+	case -1:  // byteがsignedらしいのでこの条件もいるっぽい
             result = "イヌヌワン";
 	    break;
-	default:
-	    result = "hoge";	    
+	default: // ここには来ないはずだが一応書いておくと↑の条件分岐で失敗してるときに気づけるよ 
+	    result = "hoge";
         }
 
         model.addAttribute("result", result);
         return "result";
-    } catch (NoSuchAlgorithmException e) {
+    } catch (NoSuchAlgorithmException e) { // ここでエラーをキャッチ
         // TODO 自動生成された catch ブロック
         e.printStackTrace();
         return "";
