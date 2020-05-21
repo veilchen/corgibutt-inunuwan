@@ -11,5 +11,26 @@
     <input type="text" name="input_name">
     <input type="submit" value="判定">
   </form>
+  <table>
+      <tr>
+          <th>
+              hash
+          </th>
+          <th>
+              result
+          </th>
+          <th>
+              date
+          </th>
+      </tr>
+      <tr th:each="item:${itemList}">
+          <td th:text="${item.hash_value}"></td>
+          <td th:text="${item.result}"></td>
+          <td th:text="${item.date}"></td>
+      </tr>
+  </table>
+      
+  </div>
+  </ul>
 </body>
 </html>
